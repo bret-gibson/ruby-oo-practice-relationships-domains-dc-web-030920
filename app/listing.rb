@@ -38,13 +38,14 @@ class Listing
 
     def self.most_popular
         most = 0
-        self.all.reduce do |listing| 
+        popular = ""
+        self.all.each do |listing| 
            if listing.trip_count > most
                 most = listing.trip_count
-            else
-                most
+                popular = listing
             end
         end
+        popular
     end
 
 # danny's logic: create if statment. if array exists with the trip listing then << into that list
